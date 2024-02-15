@@ -1,1 +1,33 @@
-2. Gaia - Transmisioa
+2. Gaia
+
+================================================================================
+Transmisioa
+
+Puntu batetik besteraino informazioa garraiatzen da.
+
+Transmisio funtzioa ondo bete dadin:
+-Mota guztietako seinaleak jasateko gardena.
+-Transmisio ingurunetarako egokitzea.
+-Kudeaketa, operazio eta mantebu optimoak.
+-Baliabideen erabileta eraginkorra (multiplexazioa).
+
+Transmisioa ez da beti erabiltzen, sarbide sare berera konektatuta bagaude, orokorrean, sarbide sareak egingo du lan guztia.
+
+Slide 5:
+Pakete tamaina estandarrak erabiltzen dira askotan. Gutxiegi bidali behar bada, pakete estandarra + rellenoa erabiltzen da.
+
+Zerbitzu anitzeko sareak:
+PDH -> SDH -> NG-SDH -> OTN [WDM] -> MPLS-TP
+
+Plesiochronous Digital Hierarchy												- - - - - - - - - - - - - - - - - - - - -
+Synchronous Digital Hierarchy													UIT-T G.780, G.707, G.7041, G.7042
+Next Generation - Synchronous Digital Hierarchy									- - - - - - - - - - - - - - - - - - - - -
+Optical Transport Network [Wavelength Domain Modulation (FDM-ren antzekoa)]		UIT-T G.870, G.709, G.7041, G.7042
+MUltiprotocol Label Switching - Transport Profile								UIT-T G.8110.1, G.7041, G.7042
+
+================================================================================
+Zerbitzu anizdun garraio sare optikoak
+
+Bezero geruza (Datuak): Datuak eremu elektrikoan prozesatzen ditu eta sarearen seinalearen multiplexazio, bideratze, kudeaketa... funtzioak betetzen dituen ekipamendua du.
+
+Geruza optikoa: Bezero geruzari argi ibilbdeak ematen dizkio.
