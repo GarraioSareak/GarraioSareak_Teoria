@@ -1,0 +1,17 @@
+	A KLASEA
+		1.0.0.0 - 127.255.255.255
+		CIDR: /8
+		Mask: 255.0.0.0
+		Sare pribaturako erreserbatutako IP Rangoa:	10.0.0.0 - 10.255.255.255
+
+	B KLASEA
+		128.0.0.0 - 191.255.255.255
+		CIDR: /16
+		Mask: 255.255.0.0
+		Sare pribaturako erreserbatutako IP Rangoa:	172.16.0.0 - 10.31.255.255
+
+	B KLASEA
+		192.0.0.0 - 223.255.255.0
+		CIDR: /24
+		Mask: 255.255.255.0
+		Sare pribaturako erreserbatutako IP Rangoa:	192.168.0.0 - 192.185.255.255
