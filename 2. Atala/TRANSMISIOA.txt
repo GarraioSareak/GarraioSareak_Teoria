@@ -1,3 +1,6 @@
+
+ @UTF-8
+
 2. Gaia
 
 ================================================================================
@@ -31,3 +34,153 @@ Zerbitzu anizdun garraio sare optikoak
 Bezero geruza (Datuak): Datuak eremu elektrikoan prozesatzen ditu eta sarearen seinalearen multiplexazio, bideratze, kudeaketa... funtzioak betetzen dituen ekipamendua du.
 
 Geruza optikoa: Bezero geruzari argi ibilbdeak ematen dizkio.
+
+================================================================================
+PDH - Hierarkia Digital Plesiokronoa
+2Mbps-ko oinarri bandako seinaleetan oinarrituriko (PCM-ren jatorrizko seinalea) seinale plesiokronoak multiplexatu. TDM multiplexazio plana.
+PLESIOKRONOA: Maila desberdinetako erloju frekuentziak beraien artean sinkronizatu gabe funtzionatzeko gaitasunak
+
+PDH Gaitasunak
+-Multiplexazioak abiadura bitar altuagoko fluxu bat sortuko du lau tributario astiroagoz.
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ Multiplexaziorako gailuen diagrama:
+ 
+ MUX:
+ 4 fluxu astiro barrura
+			  _______________
+ =============|				|   Fluxu azkarra kanporantza
+ =============|     MUX		|_______________________________
+ =============| 	-->		|-------------------------------
+ =============|_____________|
+    
+ 
+ DEMUX:
+ 4 fluxu astiro kanporantza
+			  _______________
+ =============|				|   Fluxu azkarra barrura
+ =============|    DEMUX	|_______________________________
+ =============| 	<--		|-------------------------------
+ =============|_____________|
+    
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+2, 8, 34, eta 140 Mbps-ko abiadurentzat estandarrak eginda.
+565 Mbps-rako estandarrik ez dago, baina ekipamendu espezifikoa existitu izan da.
+
+Multiplexazio ezaugarriak: bitratean desfaseak toleratzen ditu.
+
+	Adibidez:
+	2048kbps abiadurarentzat, +-50ppm tolerantzia du: 2047898bps eta 2048102bps artean onartzen da.
+
+Gero eta abiadura altuagoa izanda, gero eta errore tolerantzia txikiagoa du!
+
+Sinkronizazioa egiteko soluzioa:
+ - Isurle plesiokronoen multiplexazioa justifikazio positiboarekin(edo negatiboarekin)
+ - ... ++ 24. diapositiba, igotzen dituenean.
+
+Justifikazio positiboa:
+ - Seinale digital baten abiadura bitarra era kontrolatuan aldatzean datza, daraman informazioa galdu gabe, berea ez den beste abiadura batera egokitu ahal izateko.
+
+ - JUstifikazioaren kontrolerako bitak (c)
+    111 S-k justifikazioa da, ez da interpretatuko
+    000 S-k tributarioaren informazioa da
+
+ - 1. MINTGIRAKO PISTA:
+   Orokorrean, %42-ko justifikazio tasa izango dugu (Edo hala dio estandarrak)
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+PDH-ren alarmen kudeaketa
+
+LOS: LOSS OF SIGNAL - 1/10^3 errore tasa baino altuagoa dagoenean. Ez da ezer ulertu -> ez da eser bidaliko
+LOF: LOSS OF FRAME  - Trama lerrokatzaren galera, 4 hitz jarraian txarto badaude LOF alarma ematen da
+AIS: ALARM INDICATION SIGNAL - Alarma adierazteko seinalea: trafiko arruntak akatsdun baldintza bat duenean, trafiko hori ordezkatzeko sortua da, honekin, akatsak sahiesten dira.
+RDI: REMOTE DEFUNCT INDICATION - Urrutiko defektu adierazlea: transmititzen duen ekipoari bidaltzen zaio Loss Of Frame, Loss of Signal edo AIS bezalako alarma bat detektatzen denean.
+HBER (Hard BER) - Errore larri baten tasa: 1/10^6 baino errore tasa altuagoa dagoenean.
+
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+PDH-ren mugak
+- Kapazitate gutxi
+- Nodo konplexuak
+- Operazio, kudeaketa eta mantenu zailak
+- Goi mailako hierarkiak (565mbps, adibidez) araurik ez
+- Estandar ezberdinetako sareen interkonexioa zaila (EUR-US-JP)
+- Afluenteak ateratzearen arazoa (MUX eta DEMUX egitea ezin da selektiboki seinale bakar baterako egin)
+
+================================================================================
+SDH - Hierarkia Digital Sinkronoa
+
+Idealki: Erlou bakar batek sinkronizatu du sarea.
+
+SDH osoaren Overview:
+	Oinarrizko abiadura: 155mbps (PDH-ren maximo estandarizatua)
+	V_MUX = n·V_(STM-1)
+	Bytez-byte multiplexatzen da (PDH-ren Bitez-bit egin ordez)
+	Abiadura ertainak - PDH baino askoz hobe.
+	Transmiso bideak: Zuntz optikoa gehien bat.
+	Tributarioak erraz askatzeko gaitasuna.
+	Eraztunen topologia, puntuz-puntu baino fidagarriagoa.
+	Bateragarritasun orokorra, estandar onak.
+	Sare sinkronoa.
+	Bateragarritasuna efizientziaren gainetik dago.
+	Kudeaketa sendoa.
+
+Estandar oso antzekoak:
+1985 - US: SONET - Synchronous Optical NETwork
+1986 - EUR: SDH  - Synchronous Digital Hierarchy
+1990-n SDH mundu mailako estandarra
+
+SDH Trama-ren Overview
+	Luzera 125mikrosegundokoa da, denborarekiko independientea da.
+	Karga erabilgarria: EDUKIONTZI (container) izeneko taldeetan.
+	Multiplexazioa errazagoa da bytez-byte
+	Tributarioak eskuragarri daude demux gabe
+	Erreferentzia erloju partekatua sare osorako
+	Estandarizazio maila altua
+	155mbps eta 40Gbps arteko abiadura bitarrak
+	Erakusleak erabiltzen ditu kargaren hasiera adierazteko
+	Zerbitzu eta gainbegiratzeak burutzeko edukiera handiko kanalak.
+	Banda zabala eta WDM zerbitzuetarako prest
+	Hiru sare daude: Transmisioa, Sinkronizazioa eta Kudeaketa
+
+Geruzak:
+	Interfaze fisikoa: Transmisio bidea: POH (Path Over head, kargari lotuta dago eta ez SDH tramari)
+	Birsorkuntza atala: Birsortzaileen arteko tartea: RSOH (Regeneration Section OverHead)
+	Multiplexazio atala: Multiplexadoreen arteko tartea: MSOH (Multiplex Section OverHead)
+	Ibilbidea: Edukiontzi birtualen (VC - Virtual Container) muntaia eta desmuntaia puntuen artek tartea.
+	_________________________________________________
+	|   PSTN/RDSI	|	-	|	 ATM	|	 IP		|
+	|  VC-12 Geruza	|	-	|			|			|
+    |===============#=======#===========#===========#
+	|												|
+	|					VC-4 Geruza					|
+	|												|
+	|-----------------------------------------------|
+	|												|
+	|				Multiplexazio atala				|
+	|												|
+	|-----------------------------------------------|
+	|												|
+	|				Birsorkuntza Atala				|
+	|												|
+	|-----------------------------------------------|
+	|												|
+	|				 Transmisio bidea				|
+	|_______________________________________________|
+
+VC-en azalpena dago 62 diapositiban. Justifikazio negatiboa ere agertzen da baina enfin.
+Gogoratu pakete mota hauek lerroz lerro, ezkerretik-eskuinera bidaltzen direla
+
+VC-12 PDH-rekin konpatibilitateko da.
+VC-3  Amerikarrekin konpatibilitaterako da.
+VC-4  Europako estandar nagusia da, bestelako barianteak ditu (VC-4-256, VC-4-4c...)
+
+
+
+
+
+
+
+
+
