@@ -1,0 +1,34 @@
+1: SDH-n GEZURRA: (BEGIRATU: GARRANTZITSUA.png)
+	Multiplexazio eskemak 3 VC-3 VC-4 batean multiplxatzea du bere definizioaren barnean
+
+2: SDH-n, 2Mbps-ko seinale baten tramaketa asinkrooa VC-12 batean 500us-ko multitrama batean ematen da, bere egitura hau izanik:
+	EZ: Miltitrama batean lau trama MIC oso garraiatzen dira
+	Justifikazio bitak erabiliz, 2Mbos-ko karga plesiokronoa edukiontzi sinkronora moldatzen da
+
+3: Ekipamendu hauetatik zeintzuetan buka daiteke multiplexazio atala:
+	Terminal sinkronoa, ADM, Cross-connect
+	BIRSORTZAILEAK INOIZ EZ!
+
+4: STM-1 garraiaturiko 63 VC-12-ren ibilbide goiburuak
+	-Ez dira berdinak
+	-Edukiontzi birtualetan posizio finkorik ez
+	-Multitrama posizioaren adierazlea EZ da H4 - H4 VC-4-n dago
+
+5: SDH edukiontzi birtual bera garraiatzen duen modulu sunkronoaren frekuentza desberdin batekin iristen bada
+	-STM-Nren abiadura moldatua izan daiteke, justifikazioak eta erakuslearen aldatzea erabiliz
+	-SIA AKATSETARAKO DA
+
+6: VC-4 edukiontzi birtual batek EZIN du eduki bere barnean: (BEGIRATU: GARRANTZITSUA.png)
+	2 TU-3 eta 42 TU-1
+
+7: SDH-n 4. mailako edukiontzi birtual (CV-4) batean multiplexatu daitekeen 3. mailako 3 unitate tributario talde bakoutzak (TUG-3):
+	CV-4 edukiontzian posizio finkoak ditu
+
+8: Garraio sinkrono modulu batean, zeinetan VC-4a 63 TU-12z eratuta dago, TU-3ren erakusleen zonaldeak
+	Erakusle nulua adierazten duen kodifikazioa du
+
+9:SDH-ren DXC (Digital Cross Connect) Ekipamendu batek:
+	ADM baten funtzio berdinak egiten ditu baina abiadura altuko N egiturarekin (agregatu)
+
+10: SDH-n justifikazio positiboaren aurrean:
+	Edukiontzi birtualaren frekuentzia STM-N tramarena baino baxuagoa da.
